@@ -1,0 +1,21 @@
+# Visit the Docker compose reference guide for more information
+# https://docs.docker.com/compose/compose-file/
+
+# build application services
+version: '0.1'
+services:
+  # create container
+  pyalpinedevcontainer:
+    # set build context to local dockerfile
+    build:
+      context: .
+    # bind host to container to persist file changes
+    volumes:
+      - .:/devcontainer-w-compose:cached
+    # enable allocation of terminal to container
+    tty: true
+    # keep standard input open on container
+    stdin_open: true
+    # overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    
