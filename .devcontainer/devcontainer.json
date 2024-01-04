@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-	"name": "PyAlpine & Compose",
+	"name": "Ubuntu",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// Add a .devcontainer/docker-compose.yml file with any overrides you need/want to make.
@@ -11,11 +11,11 @@
 
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
-	"service": "pyalpinedevcontainer",
+	"service": "ubuntudevcontainer",
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-	"workspaceFolder": "/devcontainer-w-compose",
+	"workspaceFolder": "/doral_prospecting",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -27,7 +27,8 @@
 				"VisualStudioExptTeam.vscodeintellicode",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
 				"eamodio.gitlens",
-				"PKief.material-icon-theme"
+				"PKief.material-icon-theme", 
+				"TabNine.tabnine-vscode"
 			]
 		}
 	},

@@ -5,13 +5,13 @@
 version: '0.1'
 services:
   # create container
-  pyalpinedevcontainer:
+  ubuntudevcontainer:
     # set build context to local dockerfile
     build:
       context: .
     # bind host to container to persist file changes
     volumes:
-      - .:/devcontainer-w-compose:cached
+      - .:/doral_prospecting:cached
     # enable allocation of terminal to container
     tty: true
     # keep standard input open on container

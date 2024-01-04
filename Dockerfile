@@ -1,32 +1,48 @@
 # syntax=docker/dockerfile:1
 
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/engine/reference/builder/
+# Use the official Ubuntu 22.04 base image
+ARG UBUNTU_VERSION=22.04
+FROM ubuntu:${UBUNTU_VERSION}
 
-ARG PYTHON_VERSION=3.9
-FROM python:${PYTHON_VERSION}-alpine as base
+# Set environment variables...
 
-# Prevents Python from writing pyc files.
-ENV PYTHONDONTWRITEBYTECODE=1
+# disable interactive prompts during package installation, making the installation non-interactive.
+ENV DEBIAN_FRONTEND=noninteractive \ 
+    # specifies the "C" locale with UTF-8 character encoding
+    LC_ALL=C.UTF-8 \
+    # Similar to LC_ALL, the LANG environment variable also sets the default locale. 
+    LANG=C.UTF-8
 
-# Keeps Python from buffering stdout and stderr to avoid situations where
-# the application crashes without emitting any logs due to buffering.
-ENV PYTHONUNBUFFERED=1
+# Setting both LC_ALL and LANG to the same value helps ensure consistency
+# in the character encoding and language settings...
 
-WORKDIR /devcontainer-w-compose
+# Set the working directory in the container
+WORKDIR /doral_prospecting
 
-# Upgrade apk and install latest version of git
-RUN apk upgrade --no-cache \
-    && apk add git
-    
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
-# Leverage a bind mount to requirements.txt to avoid having to copy them into
-# into this layer.
-RUN --mount=type=cache,target=/root/.cache/pip \
-    --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
+# Update and install necessary packages...
 
-# Run the application.
-CMD ["ipython"]
+RUN apt-get update && \
+    # This command updates the package lists for the APT (Advanced Package Tool) package manager. 
+    # It fetches the latest information about available packages from the configured repositories.
+    apt-get install -y \
+        python3 \
+        python3-pip \
+        git && \
+    # This command installs the specified packages (python3 and python3-pip). 
+    # The -y flag is used to automatically confirm any prompts 
+    # during the installation process without requiring user interaction.
+    apt-get clean && \
+    # After installing packages, the apt-get clean command is used to clean up the APT package cache. This removes downloaded package files (.deb) that are no longer needed, reducing the size of the Docker image.
+    rm -rf /var/lib/apt/lists/*
+    # This command removes the package lists in /var/lib/apt/lists/. 
+    # These lists are no longer needed after the package installation is complete, 
+    # and removing them helps reduce the size of the Docker image. 
+    # The use of rm -rf removes the files and directories forcefully.
+
+# Leverage a bind mount to requirements.txt to avoid having to copy them into this layer.
+RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    # Install Python dependencies
+    pip3 install --no-cache-dir -r requirements.txt
+
+# Specify the default command to run on container startup
+CMD ["python3"]
