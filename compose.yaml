@@ -6,6 +6,8 @@ version: '0.1'
 services:
   # create container
   ubuntudevcontainer:
+    # set image name
+    image: ubuntu_for_scrapy
     # set build context to local dockerfile
     build:
       context: ./.devcontainer
