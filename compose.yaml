@@ -8,7 +8,7 @@ services:
   ubuntudevcontainer:
     # set build context to local dockerfile
     build:
-      context: .
+      context: ./.devcontainer
     # bind host to container to persist file changes
     volumes:
       - .:/doral_prospecting:cached

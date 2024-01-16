@@ -1,4 +1,0 @@
-scrapy
-scrapy-playwright
-scrapy-user-agents
-ipython
