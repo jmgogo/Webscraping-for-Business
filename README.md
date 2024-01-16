@@ -1,7 +1,7 @@
 # Webscraping for Business
 <br />
 <p align="center">
-  <a href="https://github.com/jgome284/devcontainer-w-compose">
+  <a href="https://github.com/jgome284/Webscraping-for-Business">
     <img src="imgs/scrapy_playwright.png" alt="Logo">
   </a>
 
@@ -10,9 +10,9 @@
   <p align="center">
     Webscraping for business with Scrapy and Playwright, Ubuntu devcontainer for development on Visual Studio Code.
     <br />
-    <a href="https://github.com/jgome284/devcontainer-w-compose/issues">Report Bug</a>
+    <a href="https://github.com/jgome284/Webscraping-for-Business/issues">Report Bug</a>
     ·
-    <a href="https://github.com/jgome284/devcontainer-w-compose/issues">Request Feature</a>
+    <a href="https://github.com/jgome284/Webscraping-for-Business/issues">Request Feature</a>
   </p>
 </p>
 
@@ -42,7 +42,7 @@
 ## About
 This project includes a Dev Container for Visual Studio Code. It serves as a full-featured development environment with everything needed to run the application. Dev Containers separate tools, libraries, or runtimes needed for working with a codebase. They aid in continuous integration and testing. Dev containers can be run locally or remotely, in a private or public cloud, in a variety of supporting tools and editors.
 
-[This devcontainer](.devcontainer), is built IAW the [dev containers specification](https://containers.dev/implementors/spec/) and tailored for a build environment that runs Ubuntu version 22.04 and Python. Software libraries are installed in accordance with [requirements.txt](./requirements.txt). Additionally, the devcontainer has git for version control and several extensions installed for Visual Studio Code as development utilities.
+[This devcontainer](.devcontainer), is built IAW the [dev containers specification](https://containers.dev/implementors/spec/) and tailored for a build environment that runs Ubuntu version 22.04 and Python. Software libraries are installed in accordance with [requirements.txt](./.devcontainer/requirements.txt). Additionally, the devcontainer has git for version control and several extensions installed for Visual Studio Code as development utilities.
 
 <!-- PREREQUISITES -->
 ## Prerequisites
@@ -53,11 +53,13 @@ To start, you need to have Docker Engine and Docker Compose on your machine. You
 This devcontainer is setup for development on Visual Studio Code. You should have it installed along with the [remote development pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) to enable the IDE's devcontainers functionality.
 
 Create a `credentials.txt` file to host your git configuration settings. This file is utilized by the devcontainer's `postCreateCommand` as specified in `.devcontainer.json`. The format of this file should looks as such:
+
 ```sh
-User:<YOUR NAME>
-Email:<YOUR EMAIL>
+User:"YOUR NAME"
+Email:"YOUR EMAIL"
 ```
-All dependencies within your `requirements.txt` file will be handled during the build process with Docker.
+
+All dependencies within your [requirements.txt](./.devcontainer/requirements.txt) file will be handled during the build process with Docker.
 
 
 <!-- GETTING STARTED -->
