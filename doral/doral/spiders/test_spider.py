@@ -1,5 +1,5 @@
 # System imports
-import logging
+import logging, os
 import re
 import scrapy
 from scrapy.http import Response
@@ -8,6 +8,40 @@ from typing import Iterator
 
 # Local imports
 from doral.items import BusinessItem
+
+# Remove spider log file if it exists
+if os.path.exists('testy.log'):
+    os.remove('testy.log')
+    
+# Create logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Create file handler
+fh = logging.FileHandler('testy.log')
+fh.setLevel(logging.DEBUG)
+
+# Create console handler
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+
+# Create formatter
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Add formatter to handlers
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+
+# Add handlers to logger
+logger.addHandler(fh)
+logger.addHandler(ch)
+
+# Test messages
+logger.debug('Debug message')
+logger.info('Info message')
+logger.warning('Warning message')
+logger.error('Error message')
+logger.critical('Critical message')
 
 class TestSpider(scrapy.Spider):
     name = "testy"
