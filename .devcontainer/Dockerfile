@@ -44,5 +44,8 @@ RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
     # Install Python dependencies
     pip3 install --no-cache-dir -r requirements.txt
 
+RUN playwright install chromium && \
+    playwright install-deps chromium
+    
 # Specify the default command to run on container startup
 CMD ["python3"]
