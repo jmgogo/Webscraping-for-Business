@@ -26,7 +26,9 @@
 				"VisualStudioExptTeam.vscodeintellicode",
 				"VisualStudioExptTeam.intellicode-api-usage-examples",
 				"eamodio.gitlens",
-				"PKief.material-icon-theme"
+				"PKief.material-icon-theme",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint"
 			]
 		}
 	},
