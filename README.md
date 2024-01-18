@@ -35,6 +35,12 @@ This project includes a Dev Container for Visual Studio Code. It serves as a ful
 
 [This devcontainer](.devcontainer), is built IAW the [dev containers specification](https://containers.dev/implementors/spec/) and tailored for a build environment that runs Ubuntu version 22.04 and Python. Software libraries are installed in accordance with [requirements.txt](./.devcontainer/requirements.txt). Additionally, the devcontainer has git for version control and several extensions installed for Visual Studio Code as development utilities.
 
+### Scrapy
+
+Scrapy is the bread and butter of this project. It is an application framework for crawling web sites and extracting structured data which can be used for a wide range of useful applications, like data mining, information processing or historical archival. To understand Scrapy, it's helpful to reference it's architecture. For more information, check the [docs](https://docs.scrapy.org/en/latest/topics/architecture.html#spider-middlewares) and the image below.
+
+![Scrapy Architecture](imgs/scrapy_architecture.png)
+
 <!-- PREREQUISITES -->
 ## Prerequisites
 To start, you need to have Docker Engine and Docker Compose on your machine. You can either:
