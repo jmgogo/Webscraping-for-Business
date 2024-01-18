@@ -19,24 +19,15 @@
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
-<div style='text-align:'>
-  <ol>
-    <li>
-      <a href="#about">About</a>
-    </li>
-    <li>
-      <a href="#prerequisites">Prerequisites</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    <li>
-      <a href="#license">License</a>
-    </li>
-  </ol>
-</details>
-</div>
 
+- [Webscraping for Business](#webscraping-for-business)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+    - [Setup](#setup)
+    - [Scrapy](#scrapy)
+  - [Prerequisites](#prerequisites)
+  - [Getting started](#getting-started)
+  - [License](#license)
 
 <!-- ABOUT THE PROJECT -->
 ## About
